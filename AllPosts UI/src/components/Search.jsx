@@ -15,7 +15,8 @@ const Search = () => {
 
   useEffect(() => {
     const fetchInitialPosts = async () => {
-      const response = await axios.get(`http://localhost:8000/posts`);
+      const response = await axios.get(`http://localhost:8080/jobPosts`);
+      // const response = await axios.get(`http://localhost:8000/posts`);
       console.log(response);
       setPost(response.data);
     }
