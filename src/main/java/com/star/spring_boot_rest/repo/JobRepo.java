@@ -25,7 +25,7 @@ public class JobRepo {
 
     //Basically this is saying to add this upcoming job from user to the upper list jobs we have created.
     public void addJob(JobPost job) {
-        jobs.add(job);
+        jobs.add(job); //where this add came from?
         System.out.println(jobs);
     }
 
@@ -38,5 +38,27 @@ public class JobRepo {
         }
 
         return null;
+    }
+
+    public void updateJob(JobPost jobPost) {
+
+        for(JobPost jobPost1 : jobs) {
+            if(jobPost1.getPostId() == jobPost.getPostId()) {
+                jobPost1.setPostProfile(jobPost.getPostProfile());
+                jobPost1.setPostDesc(jobPost.getPostDesc());
+                jobPost1.setReqExperience(jobPost.getReqExperience());
+                jobPost1.setPostTechStack(jobPost.getPostTechStack());
+            }
+        }
+
+    }
+
+    public void deleteJob(int postId) {
+
+        for(JobPost jobPost : jobs) {
+            if(jobPost.getPostId() == postId) {
+                jobs.remove(jobPost);
+            }
+        }
     }
 }
